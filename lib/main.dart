@@ -30,32 +30,41 @@ class _ErsteSeiteState extends State<ErsteSeite> {
       appBar: AppBar(
         title: Text("Tolle App!"),
       ),
-      body: Column(
-        children: <Widget>[
-          buildRow("Thema:", "Mein Urlaub"),
-          buildRow("Reiseziel:", "South Korea"),
-        ],
+      body: SingleChildScrollView(
+        child: Column(
+          children: <Widget>[
+            Image.network("https://images.unsplash.com/photo-1536315238512-4c8cebdaaf93?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80"),
+            buildRow("Thema:", "Mein Urlaub"),
+            buildRow("Reiseziel:", "South Korea"),
+            buildRow("Reisedauer:", "3 Wochen"),
+            buildRow("Aufenthaltsort:", "Seoul"),
+            buildRow("Wetter:", "Super"),
+          ],
+        ),
       ),
     );
   }
 
   Widget buildRow(attribut, wert) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-      children: <Widget>[
-        Text(
-          attribut,
-          style: TextStyle(
-            fontSize: 30,
+    return Padding(
+      padding: const EdgeInsets.all(5.0),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: <Widget>[
+          Text(
+            attribut,
+            style: TextStyle(
+              fontSize: 30,
+            ),
           ),
-        ),
-        Text(
-          wert,
-          style: TextStyle(
-            fontSize: 30,
+          Text(
+            wert,
+            style: TextStyle(
+              fontSize: 30,
+            ),
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 }
