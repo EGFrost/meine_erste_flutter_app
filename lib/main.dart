@@ -1,63 +1,61 @@
 import 'package:flutter/material.dart';
+//strg shift alt L !
 
-void main() => runApp(MyApp());
+void main() => runApp(MyApp()); // Startpunkt
 
 class MyApp extends StatelessWidget {
+  //Widget = UI Element
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      //Material ist eine Designart
+      title: 'Erste Seite',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: MyHomePage(title: 'Neuer Titel'),
+      home: ErsteSeite(),
     );
   }
 }
 
-class MyHomePage extends StatefulWidget {
-  MyHomePage({Key key, this.title}) : super(key: key);
-
-  final String title;
-
+class ErsteSeite extends StatefulWidget {
   @override
-  _MyHomePageState createState() => _MyHomePageState();
+  _ErsteSeiteState createState() => _ErsteSeiteState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
-
+class _ErsteSeiteState extends State<ErsteSeite> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.title),
+        title: Text("Tolle App!"),
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter mal gedrückt!',
-              style: Theme.of(context).textTheme.display1,
-            ),
-          ],
+      body: Column(
+        children: <Widget>[
+          buildRow("Thema:", "Mein Urlaub"),
+          buildRow("Reiseziel:", "South Korea"),
+        ],
+      ),
+    );
+  }
+
+  Row buildRow(attribut, wert) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      children: <Widget>[
+        Text(
+          attribut,
+          style: TextStyle(
+            fontSize: 30,
+          ),
         ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
+        Text(
+          wert,
+          style: TextStyle(
+            fontSize: 30,
+          ),
+        ),
+      ],
     );
   }
 }
