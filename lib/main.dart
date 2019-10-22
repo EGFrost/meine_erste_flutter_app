@@ -39,7 +39,7 @@ class _ErsteSeiteState extends State<ErsteSeite> {
     );
   }
 
-  Row buildRow(attribut, wert) {
+  Widget buildRow(attribut, wert) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: <Widget>[
